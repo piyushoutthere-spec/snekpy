@@ -9,7 +9,7 @@ else:
     BASE_DIR=os.path.dirname(os.path.abspath(_file_))
 window=pygame.display.set_mode((800,600))
 window.fill((0,0,0))
-pygame.display.set_caption("Write your caption here!")
+pygame.display.set_caption("Simple and easy gameee!")
 player=pygame.image.load(os.path.join(BASE_DIR,"imgs","player.png.png")).convert_alpha()
 player=pygame.transform.scale(player,(100,100))
 player_x=0
