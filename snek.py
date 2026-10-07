@@ -1,16 +1,22 @@
 import pygame
 import random
+import os
+import sys
 pygame.init()
+if getattr(sys,'frozen',false):
+    BASE_DIR=sys._MEIPASS
+else:
+    BASE_DIR=os.path.dirname(os.path.abspath(_file_))
 window=pygame.display.set_mode((800,600))
 window.fill((0,0,0))
 pygame.display.set_caption("Write your caption here!")
-player=pygame.image.load("imgs/player.png.png").convert_alpha()
+player=pygame.image.load(os.path.join(BASE_DIR,"imgs","player.png.png")).convert_alpha()
 player=pygame.transform.scale(player,(100,100))
 player_x=0
 player_y=450
 player_vel_x=0
 player_vel_y=0
-falling_object=pygame.image.load("imgs/falling.png.png").convert_alpha()
+falling_object=pygame.image.load(os.path.join(BASE_DIR,"imgs","falling.png.png")).convert_alpha()
 falling_object=pygame.transform.scale(falling_object,(100,100))
 falling_object_x=400
 falling_object_y=0
@@ -28,6 +34,7 @@ while True:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
             quit(0)
+            sys.exit()
         if event.type==pygame.KEYDOWN:
             if event.key==pygame.K_r and game_state==2:
                 player_x=0
